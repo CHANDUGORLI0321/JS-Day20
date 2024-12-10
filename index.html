@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBack Task</title>
+</head>
+<body>
+    <h1>Day19 Task</h1>
+     <h2>Call Back Hell</h2>
+     
+    <script>
+        function place_order(val,a){
+            setTimeout(function(){
+                console.log("Order is Placed");
+            },2000)
+            a()
+        }
+        function prepare_pizza(val,a){
+            setTimeout(function(){
+                console.log("Preparing the Pizza");
+            },3000)
+            a()
+        }
+        function bake_pizza(val,a){
+            setTimeout(function(){
+                console.log("Baking Pizza");
+            },4000)
+            a()
+        }
+        function pack_pizza(val,a){
+            setTimeout(function(){
+                console.log("Packing Pizza");
+            },5000)
+            a()
+        }
+        function delivary_pizza(val){
+            setTimeout(function(){
+                console.log("Delivary Successfull");
+            },6000)
+        }
+        place_order(0,(place_orderres)=>{
+            prepare_pizza(place_orderres,(prepare_pizzares)=>{
+                bake_pizza(prepare_pizzares,(bake_pizzares)=>{
+                    pack_pizza(bake_pizzares,(Pack_pizzares)=>{
+                        delivary_pizza(pack_pizza,(delivary_pizzares)=>{
+                           console.log(delivary_pizza);
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
